@@ -97,24 +97,21 @@ interface DashProps {
     match: RouteComponentProps['match'];
 }
 
-
-
 export const Dashboard = withRouter((props: DashProps) => {
     console.log(props)
 
-    // Deconstruct the history value from the props object
     const { history } = props;
 
     const classes = useStyles();
     const theme = useTheme();
-    const [open, setOpen] = useState(false) //create variable open and a setter (set the value of open to false)
+    const [open, setOpen] = useState(false) //open is set to false
 
     const handleDrawerOpen = () => {
         setOpen(true) //when handle drawer open is called, it sets open to TRUE
     }
 
     const handleDrawerClose = () => {
-        setOpen(false)
+        setOpen(false) //when handle drawer close is called, it sets open to FALSE
     }
 
     const itemsList = [
@@ -129,7 +126,7 @@ export const Dashboard = withRouter((props: DashProps) => {
     ]
     return (
         <div className={classes.root}>
-            <CssBaseline />   {/* help keep things from overlapping */}
+            <CssBaseline />
             <AppBar position='fixed' className={clsx(classes.appBar, { [classes.appBarShift]: open })}>
                 <Toolbar className={classes.toolbar}>
                     <IconButton color='inherit' aria-label='open drawer' onClick={handleDrawerOpen} edge='start' className={clsx(classes.menuButton, open && classes.hide)}>
@@ -149,7 +146,7 @@ export const Dashboard = withRouter((props: DashProps) => {
                 <Divider />
                 <List>
                     {itemsList.map((item, index) => {
-                        const { text, onClick } = item /* item is gonna have two different item in object*/
+                        const { text, onClick } = item
                         return <ListItem button key={text} onClick={onClick}>
                             <ListItemText primary={text} />
                         </ListItem>
