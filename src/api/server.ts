@@ -28,7 +28,6 @@ export const server_calls = {
         if (!response.ok) {
             console.log('Failed to Create new Car Data')
         }
-
         return await response.json()
     },
     update: async (id: string, data: any = {}) => {
@@ -40,6 +39,7 @@ export const server_calls = {
             },
             body: JSON.stringify(data)
         });
+        console.log('this is updating')
         if (!response.ok) {
             console.log('Failed to Update Car Data')
         }
