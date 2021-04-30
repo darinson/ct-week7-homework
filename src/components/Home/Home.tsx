@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import car_header from '../../assets/images/cars-by-alex-suprun.jpg';
 import { Link } from 'react-router-dom';
+import { AuthCheck } from 'reactfire';
 
 const useStyles = makeStyles({
     root: {
@@ -82,9 +83,13 @@ export const Home = (props: Props) => {
                         <li>
                             <Link to="/dashboard" className={classes.nav_a}>Dashboard</Link>
                         </li>
-                        <li>
-                            <Link to="/signin" className={classes.nav_a}>Sign In</Link>
-                        </li>
+                        {/* Auth Check for Sign In and Dashboard*/}
+                        <AuthCheck fallback={
+                            <li>
+                                <Link to="/signin" className={classes.nav_a}>Sign In</Link>
+                            </li>}>
+
+                        </AuthCheck>
                     </ul>
                 </div>
             </nav>
