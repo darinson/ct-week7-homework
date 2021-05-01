@@ -80,15 +80,19 @@ export const Home = (props: Props) => {
                         <li>
                             <Link to="/" className={classes.nav_a}>Home</Link>
                         </li>
-                        <li>
-                            <Link to="/dashboard" className={classes.nav_a}>Dashboard</Link>
-                        </li>
                         {/* Auth Check for Sign In and Dashboard*/}
                         <AuthCheck fallback={
                             <li>
                                 <Link to="/signin" className={classes.nav_a}>Sign In</Link>
-                            </li>}>
+                            </li>
+                        }>
 
+                            <li>
+                                <Link to="/dashboard" className={classes.nav_a}>Dashboard</Link>
+                            </li>
+                            <li>
+                                <Link to="/signin" className={classes.nav_a}>Sign Out</Link>
+                            </li>
                         </AuthCheck>
                     </ul>
                 </div>

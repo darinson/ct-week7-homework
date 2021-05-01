@@ -56,6 +56,8 @@ interface SignInProps {
     match: RouteComponentProps['match'];
 }
 
+const provider = new firebase.auth.GoogleAuthProvider();
+
 export const SignIn = withRouter((props: SignInProps) => {
     const auth = useAuth();
     const classes = useStyles();
@@ -73,7 +75,7 @@ export const SignIn = withRouter((props: SignInProps) => {
     }
 
     const sign_in = async () => {
-        const response = await auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+        const response = await auth.signInWithPopup(provider);
         if (response.user) {
             handleSnackOpen()
         }
